@@ -24,7 +24,8 @@ const Canvas = (props) => {
         <Background/>
         <Cannon angle={props.angle}/>
         <GamePlay/>
-        <OnStart/>
+        {!props.gameState.started && 
+        <OnStart startGame={props.startGame}/>}
       </svg>
     );
   };
@@ -34,4 +35,10 @@ export default Canvas;
 Canvas.propTypes = {
   angle: PropTypes.number.isRequired,
   trackMouse: PropTypes.func.isRequired,
+  gameState: PropTypes.shape({
+    started: PropTypes.bool.isRequired,
+    kills: PropTypes.number.isRequired,
+    lives: PropTypes.number.isRequired,
+  }).isRequired,
+  startGame: PropTypes.func.isRequired,
 };
