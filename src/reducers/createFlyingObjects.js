@@ -1,6 +1,6 @@
 import {
     createInterval, flyingObjectsStarterYAxis, maxFlyingObjects,
-    flyingObjectsStarterPositions
+    flyingObjectsStarterPositions, gameHeight
   } from '../utils/constants';
   
   function createFlyingObjects(state)  {
@@ -22,6 +22,10 @@ import {
       position: {
         x: flyingObjectPosition,
         y: flyingObjectsStarterYAxis,
+      },
+      animationEnd: {
+        x: flyingObjectPosition,
+        y: gameHeight,
       },
       createdAt: (new Date()).getTime(),
       id,

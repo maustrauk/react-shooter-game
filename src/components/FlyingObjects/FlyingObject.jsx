@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import FlyingObjectBase from './FlyingObjectBase';
 import FlyingObjectTop from './FlyingObjectTop';
 
-import { gameHeight } from '../../utils/constants';
 import { flyingObjectsAnimation } from '../../utils/animations';
 
 const Move = styled.g`
@@ -13,7 +12,7 @@ const Move = styled.g`
 `;
 
 const FlyingObject = props => (
-  <Move endPosition={{x:0, y:gameHeight}}>
+  <Move endPosition={props.animationEnd}>
     <FlyingObjectBase position={props.position} />
     <FlyingObjectTop position={props.position} />
   </Move>
@@ -21,6 +20,10 @@ const FlyingObject = props => (
 
 FlyingObject.propTypes = {
   position: PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired
+  }).isRequired,
+  animationEnd: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired
   }).isRequired,

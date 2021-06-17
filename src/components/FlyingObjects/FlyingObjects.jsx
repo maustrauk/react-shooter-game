@@ -8,7 +8,7 @@ const FlyingObjects = (props) => {
 
     return <g>
         {props.flyingObjects.map(flyingObject => (
-            <FlyingObject key={flyingObject.id} position={flyingObject.position}/>
+            <FlyingObject key={flyingObject.id} position={flyingObject.position} animationEnd={flyingObject.animationEnd}/>
         ))}
     </g>
 };
@@ -19,6 +19,10 @@ FlyingObjects.propTypes = {
           x: PropTypes.number.isRequired,
           y: PropTypes.number.isRequired
         }).isRequired,
+        animationEnd: PropTypes.shape({
+            x: PropTypes.number.isRequired,
+            y: PropTypes.number.isRequired
+          }).isRequired,
         id: PropTypes.number.isRequired,
       })).isRequired,
   };

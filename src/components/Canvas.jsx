@@ -46,6 +46,10 @@ Canvas.propTypes = {
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired
       }).isRequired,
+      animationEnd: PropTypes.shape({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired
+      }).isRequired,
       id: PropTypes.number.isRequired,
     })).isRequired,
   }).isRequired,
