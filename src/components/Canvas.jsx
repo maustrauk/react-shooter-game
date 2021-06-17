@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import Background from './Background/Background';
 import Cannon from './Cannon/Cannon';
 import GamePlay from './GamePlay/GamePlay';
+import OnStart from './OnStart/OnStart';
+
+import { gameHeight } from '../utils/constants';
 
 const Canvas = (props) => {
-    const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight];
+    const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
     return (
       <svg
         id="react-shooter-canvas"
@@ -21,6 +24,7 @@ const Canvas = (props) => {
         <Background/>
         <Cannon angle={props.angle}/>
         <GamePlay/>
+        <OnStart/>
       </svg>
     );
   };
