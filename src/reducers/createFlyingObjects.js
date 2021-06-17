@@ -24,7 +24,7 @@ import {
         y: flyingObjectsStarterYAxis,
       },
       animationEnd: {
-        x: flyingObjectPosition,
+        x: 0,
         y: gameHeight,
       },
       createdAt: (new Date()).getTime(),

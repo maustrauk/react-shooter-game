@@ -16,3 +16,5 @@ export const flyingObjectsStarterPositions = [
   150,
   300,
 ];
+
+export const flyingObjectMaxLifeTime = 4000;
