@@ -1,9 +1,9 @@
 import { keyframes, css } from 'styled-components';
 
 
-export const flyingObjectsAnimation = (props) => {
+export const objectMove = (props) => {
 
-    const moveVertically = keyframes`
+    const move = keyframes`
      0% {
             transform: translate(0,0);
         }
@@ -12,5 +12,5 @@ export const flyingObjectsAnimation = (props) => {
         }
     `;
 
-    return css`animation: ${moveVertically} 4s linear`;
+    return css`animation: ${move} 4s linear`;
 };

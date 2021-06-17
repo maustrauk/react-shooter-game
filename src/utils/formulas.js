@@ -12,6 +12,8 @@ export const pathFromBezierCurve = (cubicBezierCurve) => {
 
   export const radiansToDegrees = radians => ((radians * 180) / Math.PI);
 
+  export const degreesToRadians = degrees => ((degrees * Math.PI) / 180);
+
 export const calculateAngle = (x1, y1, x2, y2) => {
   if (x2 >= 0 && y2 >= 0) {
     return 90;
@@ -35,3 +37,4 @@ export const getCanvasPosition = (event) => {
   const { x, y } = point.matrixTransform(svg.getScreenCTM().inverse());
   return {x, y};
 };
+
