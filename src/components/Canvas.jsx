@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Background from './Background/Background';
+import Cannon from './Cannon/Cannon';
 
 const Canvas = () => {
     const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight];
@@ -11,6 +12,7 @@ const Canvas = () => {
         viewBox={viewBox}
       >
         <Background/>
+        <Cannon/>
       </svg>
     );
   };
