@@ -61,7 +61,7 @@ const Title = () => {
       </defs>
       <text {...textStyle}>
         <textPath xlinkHref="#ContextPath">
-          Context
+          React
         </textPath>
       </text>
       <text {...textStyle}>
