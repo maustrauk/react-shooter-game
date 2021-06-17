@@ -5,6 +5,7 @@ import Background from './Background/Background';
 import Cannon from './Cannon/Cannon';
 import GamePlay from './GamePlay/GamePlay';
 import OnStart from './OnStart/OnStart';
+import FlyingObjects from './FlyingObjects/FlyingObjects';
 
 import { gameHeight } from '../utils/constants';
 
@@ -26,6 +27,7 @@ const Canvas = (props) => {
         <GamePlay/>
         {!props.gameState.started && 
         <OnStart startGame={props.startGame}/>}
+        <FlyingObjects/>
       </svg>
     );
   };
