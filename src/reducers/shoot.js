@@ -1,4 +1,5 @@
-import { calculateAngle, degreesToRadians } from '../utils/formulas';
+import { calculateAngle, degreesToRadians} from '../utils/formulas';
+import { gameHeight } from '../utils/constants';
 
 function shoot(state, action) {
   if (!state.gameState.started) return state;
@@ -18,11 +19,17 @@ function shoot(state, action) {
       y: - height * Math.cos(degreesToRadians(angle)),
   }
 
+  const endPos ={
+    x:  gameHeight * Math.sin(degreesToRadians(angle)),
+    y: - gameHeight * Math.cos(degreesToRadians(angle)),
+  }
+
   const id = (new Date()).getTime();
+
   const cannonBall = {
     position: startPos,
-    animationEnd: { x: 0, y: 0 },
-    id,
+    animationEnd: endPos,
+    id: id,
   };
 
   return {

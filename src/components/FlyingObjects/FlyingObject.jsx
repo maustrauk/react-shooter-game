@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import FlyingObjectBase from './FlyingObjectBase';
 import FlyingObjectTop from './FlyingObjectTop';
 
-import { objectMove } from '../../utils/animations';
+import { flyingObjectsAnimation } from '../../utils/animations';
 
 const Move = styled.g`
-  ${props => objectMove(props.endPosition)}
+  ${props => flyingObjectsAnimation(props.endPosition)}
 `;
 
 const FlyingObject = props => (

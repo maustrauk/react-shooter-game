@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { objectMove } from '../../utils/animations';
+import { flyingBallsAnimation } from '../../utils/animations';
 
 const Move = styled.g`
-  ${props => objectMove(props.endPosition)}
+  ${props => flyingBallsAnimation(props.endPosition)}
 `;
 
 const CannonBall = (props) => {
