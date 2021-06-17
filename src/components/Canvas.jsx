@@ -1,18 +1,18 @@
 import React from 'react';
 
+import Background from './Background/Background';
+
 const Canvas = () => {
-  const style = {
-    border: '1px solid black',
+    const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight];
+    return (
+      <svg
+        id="react-shooter-canvas"
+        preserveAspectRatio="xMaxYMax none"
+        viewBox={viewBox}
+      >
+        <Background/>
+      </svg>
+    );
   };
-  return (
-    <svg
-      id="aliens-go-home-canvas"
-      preserveAspectRatio="xMaxYMax none"
-      style={style}
-    >
-      <circle cx={0} cy={0} r={50} />
-    </svg>
-  );
-};
 
 export default Canvas;
