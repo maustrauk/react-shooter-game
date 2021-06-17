@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import FlyingObject from './FlyingObject';
 
@@ -6,10 +7,20 @@ import FlyingObject from './FlyingObject';
 const FlyingObjects = (props) => {
 
     return <g>
-        <FlyingObject position={{x: -150, y: -300}}/>
-        <FlyingObject position={{x: 150, y: -300}}/>
+        {props.flyingObjects.map(flyingObject => (
+            <FlyingObject key={flyingObject.id} position={flyingObject.position}/>
+        ))}
     </g>
 };
 
+FlyingObjects.propTypes = {
+    flyingObjects: PropTypes.arrayOf(PropTypes.shape({
+        position: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        id: PropTypes.number.isRequired,
+      })).isRequired,
+  };
 
 export default FlyingObjects;
