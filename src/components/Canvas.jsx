@@ -26,7 +26,7 @@ const Canvas = (props) => {
         </defs>
         <Background/>
         <Cannon angle={props.angle}/>
-        <GamePlay lives={props.gameState.lives}/>
+        <GamePlay lives={props.gameState.lives} score={props.gameState.kills}/>
         {!props.gameState.started && 
         <OnStart startGame={props.startGame}/>}
         <FlyingObjects flyingObjects={props.gameState.flyingObjects}/>

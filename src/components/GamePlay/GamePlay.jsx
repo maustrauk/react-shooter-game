@@ -19,13 +19,14 @@ const GamePlay = (props) => {
 
 
     return <g>
-        <CurrentScore score={15} />
+        <CurrentScore score={props.score} />
         {lives.map((live, id) => (<Heart key={`Heart${id}`} position={live} />))}
     </g>
 };
 
 GamePlay.propTypes = {
     lives: PropTypes.number.isRequired,
+    score: PropTypes.number.isRequired,
   };
 
 export default GamePlay;
