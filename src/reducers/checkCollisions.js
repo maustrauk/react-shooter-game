@@ -1,4 +1,5 @@
 import { checkCollision, objectSpeeds } from '../utils/formulas';
+import { flyingObjectMaxLifeTime, cannonBallsMaxLifeTime } from '../utils/constants';
 
 const checkCollisions = (cannonBalls, flyingDiscs) => {
     const objectsDestroyed = [];
@@ -11,7 +12,7 @@ const checkCollisions = (cannonBalls, flyingDiscs) => {
           y: 0
         }; 
 
-        const discSpeed = objectSpeeds(flyingDisc.position, realEndPos, 4000); 
+        const discSpeed = objectSpeeds(flyingDisc.position, realEndPos, flyingObjectMaxLifeTime); 
 
         const calculatedFlyingDiscPosition = {
           x: flyingDisc.position.x + discSpeed.x * currentDiscLifeTime,
@@ -27,7 +28,7 @@ const checkCollisions = (cannonBalls, flyingDiscs) => {
 
           cannonBalls.forEach(cannonBall => {
             const currentBallLifeTime = (new Date()).getTime() - cannonBall.createdAt;
-            const ballSpeed = objectSpeeds(cannonBall.position, cannonBall.animationEnd, 2000);
+            const ballSpeed = objectSpeeds(cannonBall.position, cannonBall.animationEnd, cannonBallsMaxLifeTime);
 
             const calculatedcannonBallPosition = {
                 x: cannonBall.position.x + ballSpeed.x * currentBallLifeTime,
