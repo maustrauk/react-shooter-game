@@ -81,6 +81,7 @@ App.propTypes = {
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired
       }).isRequired,
+      createdAt: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired,
     })).isRequired,
     cannonBalls: PropTypes.arrayOf(PropTypes.shape({
@@ -92,6 +93,7 @@ App.propTypes = {
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired
       }).isRequired,
+      createdAt: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired,
     })).isRequired,
   }).isRequired,

@@ -29,6 +29,7 @@ function shoot(state, action) {
   const cannonBall = {
     position: startPos,
     animationEnd: endPos,
+    createdAt: id,
     id: id,
   };
 
