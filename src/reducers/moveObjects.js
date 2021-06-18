@@ -14,10 +14,7 @@ function moveObjects(state, action) {
 
   const newState = createFlyingObjects(state);
 
-
   const now = (new Date()).getTime();
-
-  console.log(newState);
 
   let flyingObjects = newState.gameState.flyingObjects.filter(object => (
     (now - object.createdAt) < flyingObjectMaxLifeTime

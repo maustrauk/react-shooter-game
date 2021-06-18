@@ -15,7 +15,6 @@ import {
   
     if ( ! createNewObject) return state; // no need to create objects now
   
-    const id = (new Date()).getTime();
     const predefinedPosition = Math.floor(Math.random() * maxFlyingObjects);
     const flyingObjectPosition = flyingObjectsStarterPositions[predefinedPosition];
     const newFlyingObject = {
@@ -27,8 +26,8 @@ import {
         x: 0,
         y: gameHeight,
       },
-      createdAt: (new Date()).getTime(),
-      id,
+      createdAt: now,
+      id: now,
     };
   
     return {

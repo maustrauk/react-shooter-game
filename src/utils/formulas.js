@@ -38,8 +38,12 @@ export const getCanvasPosition = (event) => {
   return {x, y};
 };
 
-
 export const checkCollision = (rectA, rectB) => (
   rectA.x1 < rectB.x2 && rectA.x2 > rectB.x1 &&
   rectA.y1 < rectB.y2 && rectA.y2 > rectB.y1
 );
+
+export const objectSpeeds = (start, end, time) => ({
+  x: ( end.x - start.x ) / time,
+  y: ( end.y - start.y ) / time,
+});
