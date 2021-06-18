@@ -57,18 +57,6 @@ Canvas.propTypes = {
       id: PropTypes.number.isRequired,
     })).isRequired,
   }).isRequired,
-  cannonBalls: PropTypes.arrayOf(PropTypes.shape({
-    position: PropTypes.shape({
-      x: PropTypes.number.isRequired,
-      y: PropTypes.number.isRequired
-    }).isRequired,
-    animationEnd: PropTypes.shape({
-      x: PropTypes.number.isRequired,
-      y: PropTypes.number.isRequired
-    }).isRequired,
-    createdAt: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-  })).isRequired,
   startGame: PropTypes.func.isRequired,
   shoot: PropTypes.func.isRequired,
 };

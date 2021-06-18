@@ -36,8 +36,6 @@ const CannonBall = (props) => {
       x: PropTypes.number.isRequired,
       y: PropTypes.number.isRequired
     }).isRequired,
-    createdAt: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
   };
   
   export default CannonBall;

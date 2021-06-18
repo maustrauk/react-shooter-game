@@ -8,7 +8,7 @@ const CannonBalls = (props) => {
 
     return <g>
         {props.cannonBalls.map(cannonBall => (
-            <CannonBall position={cannonBall.position} animationEnd={cannonBall.animationEnd}/>
+            <CannonBall key={cannonBall.id} position={cannonBall.position} animationEnd={cannonBall.animationEnd}/>
         ))}
     </g>
 };

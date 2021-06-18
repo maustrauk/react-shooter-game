@@ -18,3 +18,5 @@ export const flyingObjectsStarterPositions = [
 ];
 
 export const flyingObjectMaxLifeTime = 4000;
+
+export const cannonBallsMaxLifeTime = 2000;

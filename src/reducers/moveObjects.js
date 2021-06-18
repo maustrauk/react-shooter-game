@@ -1,8 +1,12 @@
 import { calculateAngle } from '../utils/formulas';
-import { flyingObjectMaxLifeTime } from '../utils/constants';
+import { flyingObjectMaxLifeTime, cannonBallsMaxLifeTime } from '../utils/constants';
 import createFlyingObjects from './createFlyingObjects';
+import checkCollisions from './checkCollisions';
 
 function moveObjects(state, action) {
+
+  if (!state.gameState.started) return state;
+
   const mousePosition = action.mousePosition || {
     x: 0,
     y: 0,
@@ -10,18 +14,37 @@ function moveObjects(state, action) {
 
   const newState = createFlyingObjects(state);
 
+
   const now = (new Date()).getTime();
-  const flyingObjects = newState.gameState.flyingObjects.filter(object => (
+
+  console.log(newState);
+
+  let flyingObjects = newState.gameState.flyingObjects.filter(object => (
     (now - object.createdAt) < flyingObjectMaxLifeTime
+  ));
+
+  let cannonBalls = newState.gameState.cannonBalls.filter(object => (
+    (now - object.createdAt) < cannonBallsMaxLifeTime
   ));
 
   const { x, y } = mousePosition;
   const angle = calculateAngle(0, 0, x, y);
+
+
+  const objectsDestroyed = checkCollisions(cannonBalls, flyingObjects);
+
+  const cannonBallsDestroyed = objectsDestroyed.map(object => (object.cannonBallId));
+  const flyingDiscsDestroyed = objectsDestroyed.map(object => (object.flyingDiscId));
+
+  cannonBalls = cannonBalls.filter(cannonBall => (cannonBallsDestroyed.indexOf(cannonBall.id)));
+  flyingObjects = flyingObjects.filter(flyingDisc => (flyingDiscsDestroyed.indexOf(flyingDisc.id)));
+
   return {
     ...newState,
     gameState: {
       ...newState.gameState,
       flyingObjects,
+      cannonBalls,
     },
     angle,
   };
