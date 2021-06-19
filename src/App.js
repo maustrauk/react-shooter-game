@@ -45,8 +45,6 @@ class App extends Component  {
 
       this.props.loggedIn(currentPlayer);
 
-      console.log(Auth0.getAccessToken());
-
       const socket = io('http://localhost:3001', {
         query: `token=${Auth0.getAccessToken()}`,
       });
