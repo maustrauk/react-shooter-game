@@ -11,7 +11,7 @@ import Canvas from './components/Canvas';
 Auth0.configure({
   domain: process.env.REACT_APP_AUTH0_DOMAIN,
   clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-  redirectUri: 'localhost:3000',
+  redirectUri: process.env.REACT_APP_redirectUri,
   responseType: 'token id_token',
   scope: 'openid profile manage:points',
   audience: 'https://my-react-shooter-game.netlify.app/',
