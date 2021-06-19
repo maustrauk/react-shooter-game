@@ -6,35 +6,20 @@ import Title from './Title';
 import StartGame from './StartGame';
 import Leaderboard from './Leaderboard';
 
+import { leaderboard } from '../../utils/mockData'; 
+
 const OnStart = (props) => {
 
     return <g>
         <Title/>
         <StartGame onClick={() => props.startGame()}/>
-        <Leaderboard currentPlayer={props.currentPlayer} authenticate={signIn} leaderboard={props.players}/>
+        <Leaderboard currentPlayer={leaderboard[6]} authenticate={signIn} leaderboard={leaderboard}/>
     </g>
 };
 
 
 OnStart.propTypes = {
     startGame: PropTypes.func.isRequired,
-    players: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        maxScore: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        picture: PropTypes.string.isRequired,
-      })),
-      currentPlayer: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        maxScore: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        picture: PropTypes.string.isRequired,
-      }),
-  };
-
-OnStart.defaultProps = {
-    currentPlayer: null,
-    players: null,
   };
 
 export default OnStart;
