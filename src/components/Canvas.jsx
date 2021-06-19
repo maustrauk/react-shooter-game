@@ -28,14 +28,13 @@ const Canvas = (props) => {
         <Cannon angle={props.angle}/>
         <GamePlay lives={props.gameState.lives} score={props.gameState.kills}/>
         {!props.gameState.started && 
-        <OnStart startGame={props.startGame}/>}
+        <OnStart startGame={props.startGame} players={props.players} currentPlayer={props.currentPlayer} />}
         <FlyingObjects flyingObjects={props.gameState.flyingObjects}/>
         <CannonBalls cannonBalls={props.gameState.cannonBalls}/>
       </svg>
     );
   };
 
-export default Canvas;
 
 Canvas.propTypes = {
   angle: PropTypes.number.isRequired,
@@ -59,4 +58,23 @@ Canvas.propTypes = {
   }).isRequired,
   startGame: PropTypes.func.isRequired,
   shoot: PropTypes.func.isRequired,
+  players: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    maxScore: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  })),
+  currentPlayer: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    maxScore: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  }),
 };
+
+Canvas.defaultProps = {
+  currentPlayer: null,
+  players: null,
+};
+
+export default Canvas;
