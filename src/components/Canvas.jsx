@@ -35,16 +35,29 @@ const Canvas = (props) => {
     );
   };
 
-export default Canvas;
-
-Canvas.propTypes = {
-  angle: PropTypes.number.isRequired,
-  trackMouse: PropTypes.func.isRequired,
-  gameState: PropTypes.shape({
-    started: PropTypes.bool.isRequired,
-    kills: PropTypes.number.isRequired,
-    lives: PropTypes.number.isRequired,
-    flyingObjects: PropTypes.arrayOf(PropTypes.shape({
+  Canvas.propTypes = {
+    angle: PropTypes.number.isRequired,
+    trackMouse: PropTypes.func.isRequired,
+    gameState: PropTypes.shape({
+      started: PropTypes.bool.isRequired,
+      kills: PropTypes.number.isRequired,
+      lives: PropTypes.number.isRequired,
+      flyingObjects: PropTypes.arrayOf(PropTypes.shape({
+        position: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        animationEnd: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        createdAt: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
+      })).isRequired,
+    }).isRequired,
+    startGame: PropTypes.func.isRequired,
+    shoot: PropTypes.func.isRequired,
+    cannonBalls: PropTypes.arrayOf(PropTypes.shape({
       position: PropTypes.shape({
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired
@@ -53,10 +66,13 @@ Canvas.propTypes = {
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired
       }).isRequired,
-      createdAt: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired,
     })).isRequired,
-  }).isRequired,
-  startGame: PropTypes.func.isRequired,
-  shoot: PropTypes.func.isRequired,
-};
+  };
+  
+  Canvas.defaultProps = {
+    cannonBalls: [],
+  };
+
+export default Canvas;
+
