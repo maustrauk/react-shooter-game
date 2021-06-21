@@ -10,6 +10,7 @@ import CannonBalls from './CannonBalls/CannonBalls';
 
 import { gameHeight } from '../utils/constants';
 
+
 const Canvas = (props) => {
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
     return (
