@@ -7,11 +7,18 @@ import GamePlay from './GamePlay/GamePlay';
 import OnStart from './OnStart/OnStart';
 import FlyingObjects from './FlyingObjects/FlyingObjects';
 import CannonBalls from './CannonBalls/CannonBalls';
+import SoundEffects from './SoundEffects/SoundEffects';
+
+
 
 import { gameHeight } from '../utils/constants';
 
+
+
 const Canvas = (props) => {
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
+
+
     return (
       <svg
         id="react-shooter-canvas"
@@ -31,32 +38,50 @@ const Canvas = (props) => {
         <OnStart startGame={props.startGame}/>}
         <FlyingObjects flyingObjects={props.gameState.flyingObjects}/>
         <CannonBalls cannonBalls={props.gameState.cannonBalls}/>
+        <SoundEffects destrEffect={props.gameState.destrEffect}/>
       </svg>
     );
   };
 
+  Canvas.propTypes = {
+    angle: PropTypes.number.isRequired,
+    trackMouse: PropTypes.func.isRequired,
+    gameState: PropTypes.shape({
+      started: PropTypes.bool.isRequired,
+      kills: PropTypes.number.isRequired,
+      lives: PropTypes.number.isRequired,
+      flyingObjects: PropTypes.arrayOf(PropTypes.shape({
+        position: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        animationEnd: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        createdAt: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
+      })).isRequired,
+      cannonBalls: PropTypes.arrayOf(PropTypes.shape({
+        position: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        animationEnd: PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired
+        }).isRequired,
+        id: PropTypes.number.isRequired,
+      })).isRequired,
+      destrEffect: PropTypes.number.isRequired,
+    }).isRequired,
+    startGame: PropTypes.func.isRequired,
+    shoot: PropTypes.func.isRequired,
+  };
+  
+  Canvas.defaultProps = {
+    cannonBalls: [],
+  };
+
 export default Canvas;
 
-Canvas.propTypes = {
-  angle: PropTypes.number.isRequired,
-  trackMouse: PropTypes.func.isRequired,
-  gameState: PropTypes.shape({
-    started: PropTypes.bool.isRequired,
-    kills: PropTypes.number.isRequired,
-    lives: PropTypes.number.isRequired,
-    flyingObjects: PropTypes.arrayOf(PropTypes.shape({
-      position: PropTypes.shape({
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired
-      }).isRequired,
-      animationEnd: PropTypes.shape({
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired
-      }).isRequired,
-      createdAt: PropTypes.number.isRequired,
-      id: PropTypes.number.isRequired,
-    })).isRequired,
-  }).isRequired,
-  startGame: PropTypes.func.isRequired,
-  shoot: PropTypes.func.isRequired,
-};

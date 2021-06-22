@@ -10,8 +10,7 @@ const initialGameState = {
   flyingObjects: [],
   lastObjectCreatedAt: new Date(),
   cannonBalls: [],
-  currentPlayer: null,
-  players: null,
+  destrEffect: 10000,
 };
 
 const initialState = {

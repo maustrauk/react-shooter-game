@@ -83,26 +83,14 @@ App.propTypes = {
       createdAt: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired,
     })).isRequired,
+    destrEffect: PropTypes.number.isRequired,
   }).isRequired,
   startGame: PropTypes.func.isRequired,
   shoot: PropTypes.func.isRequired,
-  players: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    maxScore: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-  })),
-  currentPlayer: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    maxScore: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-  }),
 };
 
 App.defaultProps = {
-  currentPlayer: null,
-  players: null,
+  cannonBalls: [],
 };
 
 export default App;
