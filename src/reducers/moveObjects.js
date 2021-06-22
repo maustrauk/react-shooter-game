@@ -38,14 +38,20 @@ function moveObjects(state, action) {
     lives = 3;
   }
 
-
-
  
   const { x, y } = mousePosition;
   const angle = calculateAngle(0, 0, x, y);
 
 
   const objectsDestroyed = checkCollisions(cannonBalls, flyingObjects);
+
+  let destrEffect = state.gameState.destrEffect;
+
+  if (objectsDestroyed.length > 0) {
+    destrEffect = 0;
+  } else {
+    destrEffect = destrEffect + 1;
+  }
 
   const cannonBallsDestroyed = objectsDestroyed.map(object => (object.cannonBallId));
   const flyingDiscsDestroyed = objectsDestroyed.map(object => (object.flyingDiscId));
@@ -65,6 +71,7 @@ function moveObjects(state, action) {
       lives: lives,
       started: started,
       kills: kills,
+      destrEffect: destrEffect,
     },
     angle,
   };
