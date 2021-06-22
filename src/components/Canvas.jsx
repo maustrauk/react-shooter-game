@@ -8,8 +8,6 @@ import OnStart from './OnStart/OnStart';
 import FlyingObjects from './FlyingObjects/FlyingObjects';
 import CannonBalls from './CannonBalls/CannonBalls';
 
-
-
 import { gameHeight } from '../utils/constants';
 
 
