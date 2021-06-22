@@ -7,9 +7,6 @@ import GamePlay from './GamePlay/GamePlay';
 import OnStart from './OnStart/OnStart';
 import FlyingObjects from './FlyingObjects/FlyingObjects';
 import CannonBalls from './CannonBalls/CannonBalls';
-import SoundEffects from './SoundEffects/SoundEffects';
-
-
 
 import { gameHeight } from '../utils/constants';
 
@@ -38,7 +35,6 @@ const Canvas = (props) => {
         <OnStart startGame={props.startGame}/>}
         <FlyingObjects flyingObjects={props.gameState.flyingObjects}/>
         <CannonBalls cannonBalls={props.gameState.cannonBalls}/>
-        <SoundEffects destrEffect={props.gameState.destrEffect}/>
       </svg>
     );
   };

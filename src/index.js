@@ -6,6 +6,8 @@ import './index.css';
 import Game from './containers/Game';
 import reducer from './reducers';
 
+import SoundTrack from './SoundTrack';
+
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
     reducer, /* preloadedState, */
@@ -15,6 +17,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
+        <SoundTrack/>
         <Game />
     </Provider>,
     document.getElementById('root'),
